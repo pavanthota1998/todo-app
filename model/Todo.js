@@ -11,7 +11,13 @@ class Todo {
         this.items[this.#idCounter++] = {title};
     }
 
-    markDone() {}
+    updateTitleName(itemKey, updatedTitle) {
+        this.items[itemKey].title = updatedTitle;
+    }
+
+    deleteItem(itemKey) {
+        delete(this.items[itemKey])
+    }
 }
 
 module.exports = Todo

@@ -2,7 +2,7 @@ const Todo =  require("./Todo");
 
 class TodoManager {
     constructor() {
-        this.todos = {}
+        this.todos = {};
     }
 
     createTodo(title, description) {
@@ -10,13 +10,23 @@ class TodoManager {
     }
 
     addItem(todoTitle, itemTitle) {
-        this.todos[todoTitle].addItem(itemTitle)
+        this.getTodo(todoTitle).addItem(itemTitle)
     }
-
-    markDone() {}
 
     getTodos() {
         return this.todos;
+    }
+
+    updateTodoItem(todoTitle, itemKey, updatedTitle) {
+        this.getTodo(todoTitle).updateTitleName(itemKey, updatedTitle);
+    }
+
+    deleteItem(todoTitle, itemKey) {
+        this.getTodo(todoTitle).deleteItem(itemKey);
+    }
+
+    getTodo(todoTitle) {
+        return this.todos[todoTitle]
     }
 }
 
